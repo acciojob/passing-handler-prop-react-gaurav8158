@@ -1,24 +1,19 @@
-import React,{useState} from "react";
+import React from 'react';
+import '../styles/Selection.css';
 
-
-let Selection=({keys,applyColor})=>{
-    console.log(keys,applyColor())
-    console.log(applyColor())
-    function colorChange(e){
-        console.log(e.target)
-        let v=e.target;
-        v.style.backgroundColor=`${applyColor().background}`
+const Selection = (props) => {   
+    function helper(e){
+        console.log(e.target);
+        e.target.style.backgroundColor = applyColor.background;
     }
+   
+    const { applyColor } = props;
+    console.log("Selection applyColor background is == ", applyColor.background);
     return (
-        <div>
-            <div
-           //add style
-        style={{width:"100px"}
-        }
-             className={keys}
-             onClick={colorChange}
-             >hi</div>
+        <div className='fix-box' onClick={(e) => {helper(e)}}> 
+            <h2>Selection</h2>       
         </div>
     )
 }
-export default Selection
+
+export default Selection;
